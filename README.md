@@ -1,6 +1,14 @@
-# Text-Repeater
-Hello,
-To use the app you simply open Installer.exe and then hit install.
-FAQ:
-1. It doensn't work?
-A: Ensure you are in windows 8.1 onwards. If error messages then uninstall and install the files again.
+V2.11 : In Dev Release
+Features:
+  -> GUI Based
+  -> Dark/Light Theme
+  -> Fixed Issues With The Text Generator
+V2.12 : First Full Release
+  -> No Longer Indev
+  -> Fixed Buggy And Awkward Text Issues
+  -> Added Change of theme
+V2.13 : First Patch
+  -> Further Bug Fixes
+  -> Windows Defender Issue Should No Longer Appear (Being Classed As Malware)
+  -> Text Fixes And Adjustments
+  -> Text Not Changing With Theme Issue Now Fixed!
