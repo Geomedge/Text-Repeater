@@ -12,3 +12,6 @@ V2.13 : First Patch
   -> Windows Defender Issue Should No Longer Appear (Being Classed As Malware)
   -> Text Fixes And Adjustments
   -> Text Not Changing With Theme Issue Now Fixed!
+
+Updates past V2.13 will be smaller but there will be a higher focus on other projects.
+Follow on github to not miss out.
