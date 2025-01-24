@@ -1,5 +1,8 @@
 # Text Repeater
 ## How To Use And Install
+- You will require Python. Find it on the official Python Page
+- With that download the "V2.22.py" file and just run it using python.
+- Done!
 ## Versions
 ### - V2.2
 - New Colour System
