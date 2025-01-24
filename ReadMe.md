@@ -1,7 +1,7 @@
 # Text Repeater
 ## How To Use And Install
 ### Versions
-#### V2.2
+#### - V2.2
 - New Colour System
 - GUI Overhaul
 - Better Changelog
