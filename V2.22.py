@@ -9,22 +9,23 @@ import threading
 import re
 #Menu GUI
 
-#Quick Note : Files are stored in lists -> black,white,black,white - To make the GUI function I separate the lists and assign them to a variable!
 
 #Saves Me The hassle of changing the version number each time separately!
 Version = "V2.22"
 last_update = 'Last Updated : 02/09/2024'
-#This just checks if files exists and if not - recreates them
+#Empty Variables
 path_list = []
+#This just checks if files exists and if not - recreates them
 path_start = os.path.expanduser("~")
 path_mid = r"\Documents\Geomedge.inc\Text Repeater"
-#Enusure File Exist
 existing1 = path_start + r"\Documents\Geomedge.inc"
 existing = os.path.exists(existing1)
 if existing == True:
     print("Pass Geomedge.Inc Folder")
 else:
     os.mkdir(existing1)
+
+#This if statement is different!
 file = path_start + path_mid
 existing = os.path.exists(file)
 if existing == True:
@@ -32,8 +33,7 @@ if existing == True:
 else:
     os.mkdir(file)
 path_end = [r"\Theme.txt",r"\Changelog.txt",r"\Font.txt",r"\FontSize.txt",r"\FontEdit.txt"]
-path_len = len(path_end)
-for i in range (path_len):
+for i in range (len(path_end)):
     path = path_start + path_mid + path_end[i]
     path_list.append(path)
 
@@ -94,7 +94,7 @@ Thank You For Supporting My Program!
 
 #Reading Data For Global Variables
 ##Verify Files Exist
-for i in range(path_len):
+for i in range(len(path_end)):
     existing = os.path.exists(path_list[i])
     if existing == True:
         print("Pass", path_list[i])
@@ -121,7 +121,7 @@ def changes():
     global Button_Txt
     global Credits_Txt
     global changes2
-    for i in range(path_len):
+    for i in range(len(path_end)):
         myfile = open(path_list[i], "r")
         a = myfile.read()
         myfile.close()
@@ -133,7 +133,7 @@ def changes():
                 theme2 = theme[1]
                 theme3 = theme[2]
                 theme4 = theme[3]
-            case 1: #Unused!
+            case 1: #Unused! - This is used for a different program
                 changes2 = a
             case 2: #Font
                 font1 = Convert(a)
@@ -183,14 +183,63 @@ def changes():
 #Calls the function to assign starter theme
 changes()
 
-
-#In this code this isn't neccessary but it is required for now!
-##Invalid Characters
-Invalid_Char = ["\\", "*", "/", "|", "<", ">", "?", "!", '"']
-ICC = len(Invalid_Char)
-
-
 #Skip to the bottom!
+
+#Pre Set Themes!
+def message_1(theme):
+    string = "Your theme was changed to " + theme + "."
+    print("Users Theme Changed To : ", string)
+    changes()
+
+#light mode
+def light():
+    myfile=open(path_list[0], "w")
+    myfile.write("pink,black,brown,white")
+    myfile.close()
+    message_1("Light Theme")
+
+#dark mode
+def dark():
+    myfile=open(path_list[0], "w")
+    myfile.write("#23272a,#7289da,#99aab5,#36393f")
+    myfile.close()
+    message_1("Dark Theme")
+
+#Hacker mode
+def hacker():
+    myfile=open(path_list[0], "w")
+    myfile.write("#000000,#20C20E,#000000,#20C20E")
+    myfile.close()
+    message_1("Hacker Theme")
+
+#Mellow
+def mellow():
+    myfile=open(path_list[0], "w")
+    myfile.write("#fceea7,#000000,#fceea7,#000000")
+    myfile.close()
+    message_1("Mellow Theme")
+
+def exit_app():
+    quit()
+
+#Uninstall
+def delete():
+    os.remove(r"VideoDir.txt")
+    os.remove(path_list[0])
+    os.remove(r"MusicDir.txt")
+    os.remove(os.getcwd())
+    print("done")
+
+
+#Confirmation For Uninstalling
+def confirm():
+    message1 = "Are you sure you want to delete Text Repeater " + Version + "?"
+    command = messagebox.askquestion(title="Are you sure?", message=message1)
+    if command == "yes":
+        delete()
+    elif command == "no":
+        settings()
+
 
 def bug_report():
     confirm = tk.Tk()
@@ -221,6 +270,7 @@ def bug_report():
     button7 = tk.Button(confirm, text='Back', command=lambda:[confirm.destroy(), menu()], bg=theme3, fg=theme4, font=(Button_Txt), width=10, height=1)
     canvas1.create_window(50, 175, window=button7)
 
+
 def changelog():
     changelog = tk.Tk()
     changelog.eval('tk::PlaceWindow . centre')
@@ -248,27 +298,6 @@ def changelog():
     
     button7 = tk.Button(changelog, text='Back', command=lambda:[changelog.destroy(), menu()], bg=theme3, fg=theme4, font=(Button_Txt), width=10, height=1)
     canvas1.create_window(50, 385, window=button7)
-
-def exit_app():
-    quit()
-
-#Uninstall
-def delete():
-    os.remove(r"VideoDir.txt")
-    os.remove(path_list[0])
-    os.remove(r"MusicDir.txt")
-    os.remove(os.getcwd())
-    print("done")
-
-
-#Confirmation For Uninstalling
-def confirm():
-    message1 = "Are you sure you want to delete Text Repeater " + Version + "?"
-    command = messagebox.askquestion(title="Are you sure?", message=message1)
-    if command == "yes":
-        delete()
-    elif command == "no":
-        settings()
 
 
 #Customisation
@@ -351,7 +380,6 @@ def font_set3():
 
     button7 = tk.Button(confirm, text='Back', command=lambda:[settings(), confirm.destroy()], bg=theme3, fg=theme4, font=(Button_Txt), width=10, height=1)
     canvas1.create_window(50, 275, window=button7)
-
 
 def font_set2():
     confirm = tk.Tk()
@@ -504,6 +532,7 @@ def change_font():
     button7 = tk.Button(confirm, text='Back', command=lambda:[settings(), confirm.destroy()], bg=theme3, fg=theme4, font=(Button_Txt), width=10, height=1)
     canvas1.create_window(50, 275, window=button7)
 
+
 def basic_colour_settings():
     confirm = tk.Tk()
     confirm.eval('tk::PlaceWindow . centre')
@@ -574,7 +603,6 @@ def basic_colour_settings():
 
     button7 = tk.Button(confirm, text='Back', command=lambda:[colour_settings_menu(), confirm.destroy()], bg=theme3, fg=theme4, font=(Button_Txt), width=10, height=1)
     canvas1.create_window(50, 275, window=button7)
-
 
 def colour_settings():
     confirm = tk.Tk()
@@ -654,7 +682,6 @@ def colour_settings():
     button7 = tk.Button(confirm, text='Back', command=lambda:[colour_settings_menu(), confirm.destroy()], bg=theme3, fg=theme4, font=(Button_Txt), width=10, height=1)
     canvas1.create_window(50, 275, window=button7)
 
-
 def colour_settings_menu():
     colour = tk.Tk()
     colour.eval('tk::PlaceWindow . centre')
@@ -681,45 +708,7 @@ def colour_settings_menu():
     canvas1.create_window(48, 90, window=button7)
 
 
-
-#Pre Set Themes!
-
-
-def message_1(theme):
-    string = "Your theme was changed to " + theme + "."
-    print("Users Theme Changed To : ", string)
-    changes()
-
-#light mode
-def light():
-    myfile=open(path_list[0], "w")
-    myfile.write("pink,black,brown,white")
-    myfile.close()
-    message_1("Light Theme")
-
-#dark mode
-def dark():
-    myfile=open(path_list[0], "w")
-    myfile.write("#23272a,#7289da,#99aab5,#36393f")
-    myfile.close()
-    message_1("Dark Theme")
-
-#Hacker mode
-def hacker():
-    myfile=open(path_list[0], "w")
-    myfile.write("#000000,#20C20E,#000000,#20C20E")
-    myfile.close()
-    message_1("Hacker Theme")
-
-#Mellow
-def mellow():
-    myfile=open(path_list[0], "w")
-    myfile.write("#fceea7,#000000,#fceea7,#000000")
-    myfile.close()
-    message_1("Mellow Theme")
-    
-    
-#Theme
+#Themes
 def theme():
     theme_app = tk.Tk()
     theme_app.title("Theme")
@@ -745,7 +734,6 @@ def theme():
     
     button7 = tk.Button(theme_app, text='Back', command=lambda:[settings(), theme_app.destroy()], bg=theme3, fg=theme4, font=(Button_Txt), width=10, height=1)
     canvas1.create_window(48, 120, window=button7)
-
 
 
 #text repeater app
@@ -837,8 +825,6 @@ def settings():
     canvas1.create_window(48, 120, window=button7)
 
 
-
-
 #Credits
 def credit():
     credit = tk.Tk()
@@ -860,8 +846,7 @@ def credit():
     button2 = tk.Button(credit, text='Back', command=lambda:[credit.destroy(), menu()], bg=theme3, fg=theme4, font=(Button_Txt), width=10, height=1)
     canvas2.create_window(50, 85, window=button2)
 
-
-
+#Menu
 def menu():
     #Basic Menu!
     menu = tk.Tk()
@@ -906,13 +891,18 @@ def menu():
 
 #Simple Null / Invalid Values Catcher - Resets all preset values if app cannot load (Bit overkill but I can't think of anything else)
 try:
-    menu()
+    try:
+        menu()
+    except:
+        menu.withdraw()
+        for i in range(5):
+            reset_file(i)
+        #Calls the reset_file function which restarts all files to original state set by me / any other dev
+        changes()
+        #Calls this function to update all the theme and font values
+        menu()
+        #Can Load Menu With Default Settings!
 except:
-    menu.withdraw()
-    for i in range(5):
-        reset_file(i)
-    #Calls the reset_file function which restarts all files to original state set by me / any other dev
-    changes()
-    #Calls this function to update all the theme and font values
-    menu()
-    #Can Load Menu With Default Settings!
+    print("Something went really wrong loading this file.")
+    print("Error 2 - Can't Load Menu Even After Resetting Files!")
+    print(":(")
