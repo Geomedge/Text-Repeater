@@ -1,3 +1,3 @@
-#Text Repeater
-##Updates
-###How To Install
+# A first-level heading
+## A second-level heading
+### A third-level heading
