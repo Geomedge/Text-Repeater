@@ -8,16 +8,6 @@ import webbrowser
 import threading
 import re
 #Menu GUI
-#Connect all pieces of code
-#Make Sure To Categorise
-
-#To Aid Future Development
-#Contents:
-#Lines 24 - 99 -> Checks For Missing Files and Contains the reset_file() 
-#Lines 100 - 179 -> Changes()
-#Lines 263 - 682 -> Customisation
-#This was last updated 02/09/2024 - May Not Reflect Current Day!
-
 
 #Quick Note : Files are stored in lists -> black,white,black,white - To make the GUI function I separate the lists and assign them to a variable!
 
