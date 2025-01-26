@@ -9,6 +9,39 @@ import threading
 import re
 #Menu GUI
 
+text = """V2.22:
+-> Added Validation To All Customisations!
+
+-> Formatted the program
+
+-> Resets Files If Corruption Occurs
+
+-> Optimisations!
+
+-> Finally Made Font Changes Work Better!
+
+-> Fonts Still Need A Bit Of Fixing But Way Better Than Before!
+
+V2.21:
+-> New Colour System
+
+-> GUI overhaul
+
+-> Better Change log
+
+-> Invalid Colours Caught - Stops Program From Crashing
+
+-> Text Repeater - Fixed Issues With Integers
+
+-> Added Message boxes
+
+-> Fixed a ton of bugs
+
+-> Added Threading - Program No Longer Crashes When Repeating Text.
+
+Thank You For Supporting My Program!
+"""
+
 
 #Saves Me The hassle of changing the version number each time separately!
 Version = "V2.22"
@@ -45,38 +78,6 @@ def reset_file(i):
         case 0:
             myfile.write("pink,black,brown,white")
         case 1:
-            text = """V2.22:
--> Added Validation To All Customisations!
-
--> Formatted the program
-
--> Resets Files If Corruption Occurs
-
--> Optimisations!
-
--> Finally Made Font Changes Work Better!
-
--> Fonts Still Need A Bit Of Fixing But Way Better Than Before!
-
-V2.21:
--> New Colour System
-
--> GUI overhaul
-
--> Better Change log
-
--> Invalid Colours Caught - Stops Program From Crashing
-
--> Text Repeater - Fixed Issues With Integers
-
--> Added Message boxes
-
--> Fixed a ton of bugs
-
--> Added Threading - Program No Longer Crashes When Repeating Text.
-
-Thank You For Supporting My Program!
-"""
             myfile.write(text)
         case 2:
             myfile.write("none,none,helvetica,helvetica")
