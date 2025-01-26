@@ -225,9 +225,8 @@ def exit_app():
 
 #Uninstall
 def delete():
-    os.remove(r"VideoDir.txt")
-    os.remove(path_list[0])
-    os.remove(r"MusicDir.txt")
+    for i in range(len[path_list]):
+        os.remove(path_list[i])
     os.remove(os.getcwd())
     print("done")
 
