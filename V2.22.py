@@ -541,41 +541,45 @@ def basic_colour_settings():
     canvas1.pack()
 
     title = tk.Label(confirm, text='Colour Settings', bg = theme1, fg = theme2)
-    title.config(font=('none 10 bold'))
+    title.config(font=('none 18 bold'))
     canvas1.create_window(250, 25, window=title)
 
     title1 = tk.Label(confirm, text='Background colour', bg = theme1, fg = theme2)
     title1.config(font=('none 9 bold'))
-    canvas1.create_window(250, 50, window=title1)
+    canvas1.create_window(125, 50, window=title1)
 
     selected_option1 = tk.StringVar()
     selected_option2 = tk.StringVar()
     selected_option3 = tk.StringVar()
     selected_option4 = tk.StringVar()
     options = ["Black","White","Red","Orange","Pink","Blue","Magenta","Yellow","Cyan","Green"]
+    menu_len = len(max(options, key=len)) + 1
     entry5 = tk.OptionMenu(confirm, selected_option1, *options)
-    canvas1.create_window(250, 75, window=entry5)
+    entry5.config(width = menu_len)
+    canvas1.create_window(125, 75, window=entry5)
 
     title2 = tk.Label(confirm, text='Colour of the text', bg = theme1, fg = theme2)
     title2.config(font=('none 9 bold'))
-    canvas1.create_window(250, 100, window=title2)
+    canvas1.create_window(375, 50, window=title2)
 
     entry6 = tk.OptionMenu(confirm, selected_option2, *options)
-    canvas1.create_window(250, 125, window=entry6)
+    entry6.config(width = menu_len)
+    canvas1.create_window(375, 75, window=entry6)
 
-    title3 = tk.Label(confirm, text='Background of buttons', bg = theme1, fg = theme2)
-    title3.config(font=('none 9 bold'))
-    canvas1.create_window(250, 150, window=title3)
+#    title3 = tk.Label(confirm, text='Background of buttons', bg = theme1, fg = theme2)
+#    title3.config(font=('none 9 bold'))
+#    canvas1.create_window(375, 125, window=title3)
 
-    entry7 = tk.OptionMenu(confirm, selected_option3, *options)
-    canvas1.create_window(250, 175, window=entry7)
+#    entry7 = tk.OptionMenu(confirm, selected_option3, *options)
+#    entry7.config(width=25)
+#    canvas1.create_window(375, 150, window=entry7)
 
-    title4 = tk.Label(confirm, text='Text Colour of buttons', bg = theme1, fg = theme2)
-    title4.config(font=('none 9 bold'))
-    canvas1.create_window(250, 200, window=title4)
+#    title4 = tk.Label(confirm, text='Text Colour of buttons', bg = theme1, fg = theme2)
+#    title4.config(font=('none 9 bold'))
+#    canvas1.create_window(250, 210, window=title4)
 
-    entry8 = tk.OptionMenu(confirm, selected_option4, *options)
-    canvas1.create_window(250, 225, window=entry8)
+#    entry8 = tk.OptionMenu(confirm, selected_option4, *options)
+#    canvas1.create_window(250, 240, window=entry8)
 
 
 
@@ -599,7 +603,7 @@ def basic_colour_settings():
         
 
     button1 = tk.Button(confirm, text='Change!', command=lambda:[theme_switch(), confirm.destroy(), basic_colour_settings()], bg=theme3, fg=theme4, font=(Button_Txt), width=10, height=1)
-    canvas1.create_window(250, 260, window=button1)
+    canvas1.create_window(250, 265, window=button1)
 
     button7 = tk.Button(confirm, text='Back', command=lambda:[colour_settings_menu(), confirm.destroy()], bg=theme3, fg=theme4, font=(Button_Txt), width=10, height=1)
     canvas1.create_window(50, 275, window=button7)
@@ -619,28 +623,28 @@ def colour_settings():
     title1.config(font=('none 9 bold'))
     canvas1.create_window(250, 50, window=title1)
 
-    entry5 = tk.Entry(confirm, font=Subtext)
+    entry5 = tk.Entry(confirm, font=Subtext, width=25)
     canvas1.create_window(250, 75, window=entry5)
 
     title2 = tk.Label(confirm, text='Input Theme 2 (Text Colour of window)', bg = theme1, fg = theme2)
     title2.config(font=('none 9 bold'))
     canvas1.create_window(250, 100, window=title2)
 
-    entry6 = tk.Entry(confirm, font=Subtext)
+    entry6 = tk.Entry(confirm, font=Subtext, width=25)
     canvas1.create_window(250, 125, window=entry6)
 
     title3 = tk.Label(confirm, text='Input Theme 3 (Background of buttons)', bg = theme1, fg = theme2)
     title3.config(font=('none 9 bold'))
     canvas1.create_window(250, 150, window=title3)
 
-    entry7 = tk.Entry(confirm, font=Subtext)
+    entry7 = tk.Entry(confirm, font=Subtext, width=25)
     canvas1.create_window(250, 175, window=entry7)
 
     title4 = tk.Label(confirm, text='Input Theme 4 (Text Colour of buttons)', bg = theme1, fg = theme2)
     title4.config(font=('none 9 bold'))
     canvas1.create_window(250, 200, window=title4)
 
-    entry8 = tk.Entry(confirm, font=Subtext)
+    entry8 = tk.Entry(confirm, font=Subtext, width=25)
     canvas1.create_window(250, 225, window=entry8)
 
     def Colour_Check(test):
@@ -776,12 +780,8 @@ def text_rep():
                 messagebox.showerror("Error", "Invalid Number Selected / No Number Found!")
         except:
             messagebox.showerror("Error!", "Invalid Text!")
-            
-    def thread_1():
-        t1 = threading.Thread(target = a)
-        t1.start()
     
-    button1 = tk.Button(root, text='Create File!', command=thread_1, bg = theme3, fg = theme4, font=('helvetica', 9, 'bold'))
+    button1 = tk.Button(root, text='Create File!', command=lambda:[threading.Thread(target=a).start()], bg = theme3, fg = theme4, font=('helvetica', 9, 'bold'))
     canvas1.create_window(200, 220, window=button1)
 
     button7 = tk.Button(root, text='Back', command=lambda:[root.destroy(), menu()], bg=theme3, fg=theme4, font=('helvetica', 9, 'bold'), width=10, height=1)
@@ -790,7 +790,7 @@ def text_rep():
     label2 = tk.Label(root, text='Made By Geomedge', bg = theme1, fg = theme2)
     label2.config(font=('helvetica', 9))
     canvas1.create_window(340, 265, window=label2)
-
+    root.mainloop()
 
 #settings
 def settings():

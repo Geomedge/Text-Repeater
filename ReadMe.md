@@ -4,6 +4,8 @@
 - With that download the "V2.22.py" file and just run it using python.
 - Done!
 ## Versions
+### - V2.21
+- General Bug Fixes And Optimisations
 ### - V2.2
 - New Colour System
 - GUI Overhaul
