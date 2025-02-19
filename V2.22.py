@@ -780,12 +780,8 @@ def text_rep():
                 messagebox.showerror("Error", "Invalid Number Selected / No Number Found!")
         except:
             messagebox.showerror("Error!", "Invalid Text!")
-            
-    def thread_1():
-        t1 = threading.Thread(target = a)
-        t1.start()
     
-    button1 = tk.Button(root, text='Create File!', command=thread_1, bg = theme3, fg = theme4, font=('helvetica', 9, 'bold'))
+    button1 = tk.Button(root, text='Create File!', command=lambda:[threading.Thread(target=a).start()], bg = theme3, fg = theme4, font=('helvetica', 9, 'bold'))
     canvas1.create_window(200, 220, window=button1)
 
     button7 = tk.Button(root, text='Back', command=lambda:[root.destroy(), menu()], bg=theme3, fg=theme4, font=('helvetica', 9, 'bold'), width=10, height=1)
@@ -794,7 +790,7 @@ def text_rep():
     label2 = tk.Label(root, text='Made By Geomedge', bg = theme1, fg = theme2)
     label2.config(font=('helvetica', 9))
     canvas1.create_window(340, 265, window=label2)
-
+    root.mainloop()
 
 #settings
 def settings():
