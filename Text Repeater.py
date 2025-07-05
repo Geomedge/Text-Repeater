@@ -12,7 +12,7 @@ from SAUIGeo import SAU
 sauvernr = "1.03.5"
 version = "V1.06.1"
 sauver = "SAU" + str(sauvernr)
-release_date = "21/06/2025"
+release_date = "05/07/2025"
 
 SAU.check()
 var = SAU.start()
