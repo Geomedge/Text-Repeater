@@ -1,20 +1,20 @@
 # Text Repeater
-## How To Use And Install
-- You will require Python. Find it on the official Python Page
-- With that download the "V2.22.py" file and just run it using python.
-- Done!
-## Versions
-### - V2.21
-- General Bug Fixes And Optimisations
-### - V2.2
-- New Colour System
-- GUI Overhaul
-- Better Changelog
-- Invalid Colours Caught And Prevented
-- Text Repeater No Longer Crashes To Invalid Numbers
-- Added MessageBoxes
-- Fixed a lot of bugs related to crashing related to human error
-- Added Threading - Program always responsive Now.
-
-
-Thank You For Supporting My Program!
+## Required Packages:
+- SAUIGeo (SAU) : `pip install SAUIGeo`
+---
+## Requirements for Text Repeater:
+- Python (3.11+) - (If using Source Code)
+---
+## Important:
+This program doesn't recieve releases!<br>
+New SAU system released with V1.06.1 - Previous Versions don't require it!<br>
+This program has undocumented versions!
+---
+## Versions:
+### V1.06.1 + SAU1.03.1:
+- Added new UI system - SAU
+    - Program to Standardise App Ui (SAU)
+    - SAU is a theme management system.
+    - SAU uses .json to store a theme, which means that it's very easy to change UI elements.
+- Added new menus into menu bar
+    - Settings and Help
